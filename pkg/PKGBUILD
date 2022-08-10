@@ -35,7 +35,7 @@ package_jkoonts-base() {
 
     # Debugging tools
     depends+=(
-        lsof bind-tools mtr socat htop iotop openbsd-netcat strace tcpdump whois
+        lsof bind-tools mtr socat htop iotop strace tcpdump whois
         iftop dstat
     )
 
@@ -43,7 +43,7 @@ package_jkoonts-base() {
     depends+=(e2fsprogs exfat-utils dosfstools f2fs-tools)
 
     # Networking
-    depends+=(nftables iw iwd avahi nss-mdns openssh)
+    depends+=(networkmanager iw iwd avahi nss-mdns openssh)
 
     # General tools
     depends+=(git cmake gcc cronie wget screen)
@@ -79,7 +79,7 @@ package_jkoonts-desktop() {
     depends=(jkoonts-base)
 
     # Gnome Desktop
-    depends+=(gnome networkmanager)
+    depends+=(gnome)
 
     # Login manager
     depends+=(gdm)
