@@ -70,7 +70,6 @@ package_jkoonts-base() {
     depends+=(vale)
 
 
-    useradd -m foxx
     cp -a "$workingdir/files-base/"* "$pkgdir"
     chmod -R 0750 "$pkgdir/etc/sudoers.d"
 
