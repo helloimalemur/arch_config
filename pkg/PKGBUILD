@@ -1,21 +1,21 @@
 # Maintainer: James Koonts <jams@koonts.net>
 pkgbase=jkoonts
-pkgname=(mdaffin-base mdaffin-desktop mdaffin-neovim mdaffin-laptop mdaffin-dell-xps-13)
+pkgname=(jkoonts-base jkoonts-desktop jkoonts-neovim jkoonts-laptop jkoonts-dell-xps-13)
 pkgver=50
 pkgrel=1
-pkgdesc="System config for mdaffin systems"
+pkgdesc="System config for jkoonts systems"
 arch=(any)
-url="https://github.com/mdaffin/arch-repo"
+url="https://github.com/jkoonts/arch-repo"
 license=(MIT)
-groups=(mdaffin)
+groups=(jkoonts)
 
 rootdir=$PWD
 
-package_mdaffin-base() {
-    provides=(mdaffin-devel)
-    conflicts=(mdaffin-devel)
-    replaces=(mdaffin-devel)
-    install=mdaffin-base.install
+package_jkoonts-base() {
+    provides=(jkoonts-devel)
+    conflicts=(jkoonts-devel)
+    replaces=(jkoonts-devel)
+    install=jkoonts-base.install
 
     # Base packages
     depends=(base linux linux-firmware man-db man-pages texinfo intel-ucode)
@@ -73,12 +73,12 @@ package_mdaffin-base() {
     chmod -R 0750 "$pkgdir/etc/sudoers.d"
 }
 
-package_mdaffin-neovim() {
+package_jkoonts-neovim() {
     provides=(vim vi)
     conflicts=(vim vi)
     replaces=(vim vi)
 
-    depends=(mdaffin-base neovim python-msgpack python-pynvim)
+    depends=(jkoonts-base neovim python-msgpack python-pynvim)
     depends+=(
         bash-language-server
         dockerfile-language-server-bin
@@ -111,10 +111,10 @@ package_mdaffin-neovim() {
     cp -a "$rootdir/files-neovim/"* "$pkgdir"
 }
 
-package_mdaffin-desktop() {
-    install=mdaffin-desktop.install
+package_jkoonts-desktop() {
+    install=jkoonts-desktop.install
 
-    depends=(mdaffin-base)
+    depends=(jkoonts-base)
 
     # Gnome Desktop
     depends+=(gnome networkmanager)
@@ -147,18 +147,18 @@ package_mdaffin-desktop() {
     cp -a "$rootdir/files-desktop/"* "$pkgdir"
 }
 
-package_mdaffin-gaming() {
+package_jkoonts-gaming() {
     depends=(
-        mdaffin-desktop steam nvidia nvidia-utils lib32-nvidia-utils lib32-libpulse
+        jkoonts-desktop steam nvidia nvidia-utils lib32-nvidia-utils lib32-libpulse
         ttf-liberation wqy-zenhei
     )
 }
 
-package_mdaffin-laptop() {
-    depends=('mdaffin-desktop' 'powertop')
+package_jkoonts-laptop() {
+    depends=('jkoonts-desktop' 'powertop')
 }
 
-package_mdaffin-dell-xps-13() {
-    depends=('mdaffin-laptop')
+package_jkoonts-dell-xps-13() {
+    depends=('jkoonts-laptop')
     cp -a "$rootdir/files-dell-xps-13/"* "$pkgdir"
 }
