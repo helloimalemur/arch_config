@@ -1,15 +1,15 @@
 # Maintainer: James Koonts <jams@koonts.net>
 pkgbase=jkoonts
-pkgname=(jkoonts-base jkoonts-desktop jkoonts-neovim jkoonts-laptop jkoonts-dell-xps-13)
-pkgver=50
+pkgname=(jkoonts-base jkoonts-desktop jkoonts-laptop jkoonts-elitebook)
+pkgver=1
 pkgrel=1
 pkgdesc="System config for jkoonts systems"
 arch=(any)
-url="https://github.com/jkoonts/arch-repo"
+url="https://github.com/helloimalemur/arch-repo"
 license=(MIT)
 groups=(jkoonts)
 
-rootdir=$PWD
+rootdir=$(pwd)
 
 package_jkoonts-base() {
     provides=(jkoonts-devel)
