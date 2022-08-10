@@ -58,7 +58,7 @@ package_jkoonts-base() {
     depends+=(terraform)
 
     # Languages
-    depends+=(rustup clang go)
+    depends+=(rustup clang go python3 python-pip jdk-openjdk)
 
     # Python tools
     depends+=(python-black python-pycodestyle python-pylint flake8)
