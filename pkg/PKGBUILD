@@ -9,7 +9,7 @@ url="https://github.com/helloimalemur/arch-repo"
 license=(MIT)
 groups=(jkoonts)
 
-rootdir=$(pwd)
+workingdir=$(pwd)
 
 package_jkoonts-base() {
     provides=(jkoonts-devel)
@@ -46,7 +46,7 @@ package_jkoonts-base() {
     depends+=(nftables iw iwd avahi nss-mdns openssh)
 
     # General tools
-    depends+=(git cmake jq musl ddrescue)
+    depends+=(git cmake gcc cronie wget screen)
 
     # Arch Packaging
     depends+=(devtools aurutils aws-cli-v2-bin)
@@ -69,46 +69,8 @@ package_jkoonts-base() {
     # Text
     depends+=(vale)
 
-    cp -a "$rootdir/files-base/"* "$pkgdir"
+    cp -a "$workingdir/files-base/"* "$pkgdir"
     chmod -R 0750 "$pkgdir/etc/sudoers.d"
-}
-
-package_jkoonts-neovim() {
-    provides=(vim vi)
-    conflicts=(vim vi)
-    replaces=(vim vi)
-
-    depends=(jkoonts-base neovim python-msgpack python-pynvim)
-    depends+=(
-        bash-language-server
-        dockerfile-language-server-bin
-        gopls
-        nodejs-svelte-language-server
-        python-language-server
-        rust-analyzer
-        terraform-ls
-        typescript-language-server-bin
-        vim-language-server
-        vscode-css-languageserver-bin
-        vscode-html-languageserver-bin
-        vscode-json-languageserver-bin
-        yaml-language-server
-    )
-
-    export DESTDIR=$pkgdir
-    "$rootdir/add-nvim-plugin" opt neovim/nvim-lspconfig
-    "$rootdir/add-nvim-plugin" start liuchengxu/vim-which-key
-    "$rootdir/add-nvim-plugin" start ap/vim-buftabline
-    "$rootdir/add-nvim-plugin" start ekalinin/Dockerfile.vim
-    "$rootdir/add-nvim-plugin" start sheerun/vim-polyglot
-    "$rootdir/add-nvim-plugin" opt dracula/vim dracula
-    "$rootdir/add-nvim-plugin" opt nvim-lua/lsp_extensions.nvim
-    "$rootdir/add-nvim-plugin" opt nvim-lua/completion-nvim
-    "$rootdir/add-nvim-plugin" opt nvim-lua/lsp-status.nvim
-    "$rootdir/add-nvim-plugin" opt junegunn/fzf.vim
-    "$rootdir/add-nvim-plugin" start udalov/kotlin-vim
-
-    cp -a "$rootdir/files-neovim/"* "$pkgdir"
 }
 
 package_jkoonts-desktop() {
@@ -138,27 +100,25 @@ package_jkoonts-desktop() {
     )
 
 
-    # Fonts
-    depends+=(
-
-    )
-
-
-    cp -a "$rootdir/files-desktop/"* "$pkgdir"
-}
-
-package_jkoonts-gaming() {
-    depends=(
-        jkoonts-desktop steam nvidia nvidia-utils lib32-nvidia-utils lib32-libpulse
-        ttf-liberation wqy-zenhei
-    )
+    cp -a "$workingdir/files-desktop/"* "$pkgdir"
 }
 
 package_jkoonts-laptop() {
     depends=('jkoonts-desktop' 'powertop')
 }
 
-package_jkoonts-dell-xps-13() {
+package_jkoonts-elitebook() {
     depends=('jkoonts-laptop')
-    cp -a "$rootdir/files-dell-xps-13/"* "$pkgdir"
+    cp -a "$workingdir/files-elitebook/"* "$pkgdir"
+}
+
+package_jkoonts-raspberrypi() {
+    depends=('jkoonts-base')
+    cp -a "$workingdir/files-raspberrypi/"* "$pkgdir"
+}
+
+package_jkoonts-gaming() {
+    depends=(
+        jkoonts-desktop steam nvidia nvidia-utils
+    )
 }
