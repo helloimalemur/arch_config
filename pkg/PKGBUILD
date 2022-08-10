@@ -70,7 +70,7 @@ package_jkoonts-base() {
     depends+=(vale)
 
 
-    cp -a "$workingdir/files-base/"* "$pkgdir"
+    cp -a "$workingdir/files/base/"* "$pkgdir"
     chmod -R 0750 "$pkgdir/etc/sudoers.d"
 
 }
@@ -102,21 +102,22 @@ package_jkoonts-desktop() {
     )
 
 
-    cp -a "$workingdir/files-desktop/"* "$pkgdir"
+    cp -a "$workingdir/files/desktop/"* "$pkgdir"
 }
 
 package_jkoonts-laptop() {
     depends=('jkoonts-desktop' 'powertop')
+    #cp -a "$workingdir/files/laptop/"* "$pkgdir"
 }
 
 package_jkoonts-elitebook() {
     depends=('jkoonts-laptop')
-    cp -a "$workingdir/files-elitebook/"* "$pkgdir"
+    #cp -a "$workingdir/files/elitebook/"* "$pkgdir"
 }
 
 package_jkoonts-raspberrypi() {
     depends=('jkoonts-desktop')
-    cp -a "$workingdir/files-raspberrypi/"* "$pkgdir"
+    #cp -a "$workingdir/files/raspberrypi/"* "$pkgdir"
 }
 
 package_jkoonts-gaming() {
