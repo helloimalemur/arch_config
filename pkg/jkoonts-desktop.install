@@ -1,4 +1,14 @@
 post_install() {
+    systemctl enable iwd
+    systemctl start iwd
+    systemctl enable NetworkManager
+    systemctl start NetworkManager
+    systemctl enable ufw
+    systemctl start ufw
+    systemctl enable sshd
+    systemctl start sshd
+    systemctl enable gdm
+    ufw allow 22/tcp
     post_upgrade
 }
 

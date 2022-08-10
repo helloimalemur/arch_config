@@ -43,7 +43,7 @@ package_jkoonts-base() {
     depends+=(e2fsprogs exfat-utils dosfstools f2fs-tools)
 
     # Networking
-    depends+=(networkmanager iw iwd avahi nss-mdns openssh)
+    depends+=(networkmanager iw iwd avahi nss-mdns openssh iwd ufw)
 
     # General tools
     depends+=(git cmake gcc cronie wget screen)
@@ -69,8 +69,11 @@ package_jkoonts-base() {
     # Text
     depends+=(vale)
 
+
+    useradd -m foxx
     cp -a "$workingdir/files-base/"* "$pkgdir"
     chmod -R 0750 "$pkgdir/etc/sudoers.d"
+
 }
 
 package_jkoonts-desktop() {
@@ -113,7 +116,7 @@ package_jkoonts-elitebook() {
 }
 
 package_jkoonts-raspberrypi() {
-    depends=('jkoonts-base')
+    depends=('jkoonts-desktop')
     cp -a "$workingdir/files-raspberrypi/"* "$pkgdir"
 }
 
