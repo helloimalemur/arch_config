@@ -18,13 +18,13 @@ package_jkoonts-base() {
     install=jkoonts-base.install
 
     # Base packages
-    depends=(base linux linux-firmware man-db man-pages texinfo intel-ucode)
+    depends=(base linux linux-firmware man-db man-pages)
 
     # Base Devel
     depends+=(
         autoconf automake binutils bison fakeroot file findutils flex gawk gcc
         gettext grep groff gzip libtool m4 make pacman patch pkgconf sed sudo
-        texinfo which
+        texinfo which git cmake gcc
     )
 
     # Extra general packages
@@ -46,7 +46,7 @@ package_jkoonts-base() {
     depends+=(networkmanager iw iwd avahi nss-mdns openssh iwd ufw)
 
     # General tools
-    depends+=(git cmake gcc cronie wget screen)
+    depends+=(cronie wget screen)
 
     # Arch Packaging
     depends+=(devtools aurutils aws-cli-v2-bin)
@@ -67,7 +67,7 @@ package_jkoonts-base() {
     depends+=(yarn npm nodejs prettier)
 
     # Text
-    depends+=(vale)
+    depends+=(nano)
 
 
     cp -a "$workingdir/files/base/"* "$pkgdir"
@@ -94,7 +94,7 @@ package_jkoonts-desktop() {
 
     # Utility
     depends+=(
-        wget nano redshift bluez bluez-utils)
+        nano redshift bluez bluez-utils)
 
     # Drivers and utilities
     depends+=(
@@ -106,17 +106,17 @@ package_jkoonts-desktop() {
 }
 
 package_jkoonts-laptop() {
-    depends=('jkoonts-desktop' 'powertop')
+    depends=(jkoonts-desktop powertop)
     #cp -a "$workingdir/files/laptop/"* "$pkgdir"
 }
 
 package_jkoonts-elitebook() {
-    depends=('jkoonts-laptop')
+    depends=(jkoonts-laptop)
     #cp -a "$workingdir/files/elitebook/"* "$pkgdir"
 }
 
 package_jkoonts-raspberrypi() {
-    depends=('jkoonts-desktop')
+    depends=(jkoonts-base)
     #cp -a "$workingdir/files/raspberrypi/"* "$pkgdir"
 }
 
