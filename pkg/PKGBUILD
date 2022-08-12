@@ -1,6 +1,6 @@
 # Maintainer: James Koonts <jams@koonts.net>
 pkgbase=jkoonts
-pkgname=(jkoonts-base jkoonts-desktop jkoonts-laptop jkoonts-elitebook)
+pkgname=(jkoonts-base jkoonts-gnome jkoonts-xfce4 jkoonts-laptop jkoonts-elitebook jkoonts-raspberrypi jkoonts-gaming)
 pkgver=1
 pkgrel=1
 pkgdesc="System config for jkoonts systems"
