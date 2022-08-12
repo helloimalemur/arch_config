@@ -43,16 +43,16 @@ package_jkoonts-base() {
     depends+=(e2fsprogs exfat-utils dosfstools f2fs-tools)
 
     # Networking
-    depends+=(networkmanager iw iwd avahi nss-mdns openssh iwd ufw)
+    depends+=(networkmanager iw iwd avahi nss-mdns openssh iwd ufw dhclient)
 
     # General tools
     depends+=(cronie wget screen)
 
     # Arch Packaging
-    depends+=(devtools aurutils aws-cli-v2-bin)
+    depends+=(devtools)
 
     # Docker
-    depends+=(docker docker-compose dnsmasq rancher-k3d-bin kubectl k9s kind)
+    depends+=(docker docker-compose dnsmasq kubectl k9s)
 
     # Automation tools
     depends+=(terraform)
