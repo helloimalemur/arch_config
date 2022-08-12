@@ -121,7 +121,7 @@ package_jkoonts-raspberrypi() {
 }
 
 package_jkoonts-xfce4() {
-    depends=(jkoonts-base xfce4)
+    depends=(jkoonts-base exo garcon thunar thunar-volman xfce4-appfinder xfce4-panel xfce4-session xfce4-settings xfce4-terminal xfconf xfdesktop xfwm4 xfwm4-themes)
     #cp -a "$workingdir/files/raspberrypi/"* "$pkgdir"
 }
 
