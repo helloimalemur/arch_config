@@ -120,6 +120,11 @@ package_jkoonts-raspberrypi() {
     #cp -a "$workingdir/files/raspberrypi/"* "$pkgdir"
 }
 
+package_jkoonts-vm() {
+    depends=(jkoonts-base xfce4)
+    #cp -a "$workingdir/files/raspberrypi/"* "$pkgdir"
+}
+
 package_jkoonts-gaming() {
     depends=(
         jkoonts-desktop steam nvidia nvidia-utils
