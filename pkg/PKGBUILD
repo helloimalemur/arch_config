@@ -75,7 +75,7 @@ package_jkoonts-base() {
 
 }
 
-package_jkoonts-desktop() {
+package_jkoonts-gnome() {
     install=jkoonts-desktop.install
 
     depends=(jkoonts-base)
@@ -98,7 +98,7 @@ package_jkoonts-desktop() {
 
     # Drivers and utilities
     depends+=(
-        nvidia nvidia-utils nvidia-settings
+
     )
 
 
@@ -120,13 +120,13 @@ package_jkoonts-raspberrypi() {
     #cp -a "$workingdir/files/raspberrypi/"* "$pkgdir"
 }
 
-package_jkoonts-vm() {
+package_jkoonts-xfce4() {
     depends=(jkoonts-base xfce4)
     #cp -a "$workingdir/files/raspberrypi/"* "$pkgdir"
 }
 
 package_jkoonts-gaming() {
     depends=(
-        jkoonts-desktop steam nvidia nvidia-utils
+        jkoonts-desktop steam nvidia nvidia-utils nvidia-settings
     )
 }
