@@ -29,7 +29,7 @@ package_jkoonts-base() {
 
     # Extra general packages
     depends+=(
-        ripgrep exa fd wget fzf unzip zip dialog pacman-contrib bat ncdu
+        ntfs-3g ripgrep exa fd wget fzf unzip zip dialog pacman-contrib bat ncdu
         keybase efibootmgr pv zsh grml-zsh-config zsh-completions watchexec
     )
 
